@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 # load security keys
 user=os.getenv('id')
-pas=os.getenv('pass')
+pas=os.getenv('pas')
 #load the model
 MODEL="CognitiveComputations/dolphin-llama3.1"
 #give system prompt
@@ -25,4 +25,4 @@ def chat(message, history):
         response += chunk["message"]["content"] if "message" in chunk else ""
         yield response
 #secure the link with id and pass with auth function
-gr.ChatInterface(fn=chat,type="messages").launch(share=True,pwa=True,auth=("user", "pas"))
+gr.ChatInterface(fn=chat,type="messages").launch(share=True,pwa=True,auth=(user,pas))
