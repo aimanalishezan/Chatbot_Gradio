@@ -7,10 +7,11 @@ from dotenv import load_dotenv
 # load security keys
 user=os.getenv('id')
 pas=os.getenv('pas')
+
 #load the model
-MODEL="CognitiveComputations/dolphin-llama3.1"
+MODEL=os.getenv('model')
 #give system prompt
-system_message="You are a helpful AI Assistant. If you find any question asking about who you are like ' What's your name? ' , say 'My name is Man.Ai and my creator is Sir Ai-man and I develop by the team called Ai-ManS'"
+system_message=os.getenv('system')
 #crate function for chatinterface 
 def chat(message, history):
     messages=[{"role":"system","content":system_message}] + history + [{"role":"user","content":message}]
