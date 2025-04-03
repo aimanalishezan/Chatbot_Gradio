@@ -13,9 +13,9 @@ def chat(message, history):
         messages=messages,
         stream=True
     )
-    response=""
+    response = ""
     for chunk in stream:
-        response+=chunk.choices[0].delta.content or ''
+        response += chunk["message"]["content"] if "message" in chunk else ""
         yield response
 
-gr.ChatInterface(fn=chat,type="messages").launch(share=True)
+gr.ChatInterface(fn=chat,type="messages").launch(share=True,pwa=True)
