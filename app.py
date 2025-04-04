@@ -4,6 +4,7 @@ import ollama
 import os
 from dotenv import load_dotenv
 
+load_dotenv()
 # load security keys
 user=os.getenv('id')
 pas=os.getenv('pas')
